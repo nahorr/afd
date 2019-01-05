@@ -14,7 +14,7 @@
       <nav class="navbar navbar-light navbar-expand-lg bg-dark bg-faded osahan-menu">
          <div class="container-fluid">
             <a class="navbar-brand" href="index.html"> <img src="{{ asset('img/logo.png') }}" alt="logo"> </a>
-            <a class="location-top" href="#"><i class="mdi mdi-map-marker-circle" aria-hidden="true"></i> New York</a>
+            <a class="location-top" href="#"><i class="mdi mdi-map-marker-circle" aria-hidden="true"></i> Calgary</a>
             <button class="navbar-toggler navbar-toggler-white" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,12 +40,18 @@
                </div>
                <div class="my-2 my-lg-0">
                   <ul class="list-inline main-nav-right">
+                     @auth
+                     <li class="list-inline-item">
+                        <a href="{{ url('/home') }}" class="btn btn-link"><i class="mdi mdi-account-check"></i> {{ Auth::user()->name }}'s Dashboard</a>
+                     </li>
+                     @else
                      <li class="list-inline-item">
                         <a href="#" data-target="#login-modal" data-toggle="modal" class="btn btn-link"><i class="mdi mdi-lock"></i> Login</a>
                      </li>
-                     <li class="list-inline-item">
+                      <li class="list-inline-item">
                         <a href="#" data-target="#register-modal" data-toggle="modal" class="btn btn-link"><i class="mdi mdi-account-plus"></i> Sign Up</a>
                      </li>
+                      @endauth
                      <li class="list-inline-item cart-btn">
                         <a href="#" data-toggle="offcanvas" class="btn btn-link border-none"><i class="mdi mdi-cart"></i> My Cart <small class="cart-value">5</small></a>
                      </li>
@@ -68,22 +74,12 @@
                      <a href="about.html" class="nav-link">About Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="shop.html">Fruits & Vegetables</a>
+                     <a class="nav-link" href="shop.html">Grocery</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="shop.html">Grocery & Staples</a>
+                     <a class="nav-link" href="shop.html">Staples</a>
                   </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="shop.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Shop Grid</a>
-                        <a class="dropdown-item" href="single.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Single Product</a>
-                        <a class="dropdown-item" href="cart.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Shopping Cart</a>
-                        <a class="dropdown-item" href="checkout.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Checkout</a> 
-                     </div>
-                  </li>
+                  @auth
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      My Account
@@ -95,28 +91,12 @@
                         <a class="dropdown-item" href="orderlist.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  Order List</a> 
                      </div>
                   </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Blog Page
-                     </a>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="blog.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Blog</a>
-                        <a class="dropdown-item" href="blog-detail.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i> Blog Detail</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     More Pages
-                     </a>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="about.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  About Us</a>
-                        <a class="dropdown-item" href="contact.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  Contact Us</a>
-                        <a class="dropdown-item" href="faq.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  FAQ </a>
-                        <a class="dropdown-item" href="not-found.html"><i class="mdi mdi-chevron-right" aria-hidden="true"></i>  404 Error</a> 
-                     </div>
+                  @endauth
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact</a>
+                     <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                   </li>
                </ul>
             </div>

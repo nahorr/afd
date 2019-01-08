@@ -45,7 +45,7 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                    @endif
                                  </fieldset>
 
                                  <div class="login-with-sites">

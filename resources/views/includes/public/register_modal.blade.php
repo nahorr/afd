@@ -21,11 +21,20 @@
                                  <div class="tab-pane" id="register" role="tabpanel">
                                     <h5 class="heading-design-h5">Register Now!</h5>
                                     <fieldset class="form-group">
-                                       <label>Full Name</label>
-                                       <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-                                      @if ($errors->has('name'))
+                                       <label>First Name</label>
+                                       <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                      @if ($errors->has('first_name'))
                                           <span class="invalid-feedback" role="alert">
-                                              <strong>{{ $errors->first('name') }}</strong>
+                                              <strong>{{ $errors->first('first_name') }}</strong>
+                                          </span>
+                                      @endif
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                       <label>Last Name</label>
+                                       <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                      @if ($errors->has('last_name'))
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $errors->first('last_name') }}</strong>
                                           </span>
                                       @endif
                                     </fieldset>
